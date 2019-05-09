@@ -27,7 +27,27 @@ def live_response_1(action=None, success=None, container=None, results=None, han
         'device_id': 13698,
     })
 
-    phantom.act("live response", parameters=parameters, assets=['psc'], name="live_response_1")
+    phantom.act("live response", parameters=parameters, assets=['psc'], callback=live_response_2, name="live_response_1")
+
+    return
+
+def live_response_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):
+    phantom.debug('live_response_2() called')
+    
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
+    # collect data for 'live_response_2' call
+
+    parameters = []
+    
+    # build parameters list for 'live_response_2' call
+    parameters.append({
+        'device_id': 13698,
+        'command': "process list",
+        'object': "RepMgr.exe",
+    })
+
+    phantom.act("live response", parameters=parameters, assets=['psc'], name="live_response_2", parent_action=action)
 
     return
 
