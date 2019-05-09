@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "93c372962e63170445338eef675b5452eedb9d88",
+            "hash": "765858f48ab6462ec713ba6f1fc8d79b72a5db80",
             "joint": {
                 "cells": [
                     {
@@ -143,7 +143,6 @@
                             "height": 54,
                             "width": 80
                         },
-                        "state": "end",
                         "status": "",
                         "title": "END",
                         "type": "coa.StartEnd",
@@ -199,7 +198,7 @@
                         "callback_code": "# read-only block view not available",
                         "callback_start": 1,
                         "callsback": false,
-                        "connected_to_start": false,
+                        "connected_to_start": true,
                         "connection_name": "",
                         "connection_type": "",
                         "custom_callback": "",
@@ -288,7 +287,6 @@
                             "height": 54,
                             "width": 80
                         },
-                        "state": "start",
                         "status": "",
                         "title": "START",
                         "type": "coa.StartEnd",
@@ -336,6 +334,47 @@
                         "z": 4
                     },
                     {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "7f4e44e3-0d5b-4bf3-ab17-5b791ccdb92d",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "2e2491ce-7f48-4daf-a201-eabed8cfcc6c",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "d077c20d-6094-4f74-9035-14e601090e25",
+                            "port": null,
+                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "type": "link",
+                        "z": 7
+                    },
+                    {
                         "action": "live response",
                         "action_type": "contain",
                         "active": false,
@@ -343,7 +382,7 @@
                         "active_values": {
                             "command": "process list",
                             "device_id": "13698",
-                            "object": "\\Device\\HarddiskVolume1\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+                            "object": "C:\\Program Files\\Confer\\RepMgr.exe"
                         },
                         "angle": 0,
                         "app": "Carbon Black ThreatHunter",
@@ -376,7 +415,7 @@
                                 "fields": {
                                     "command": "process list",
                                     "device_id": "13698",
-                                    "object": "\\Device\\HarddiskVolume1\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+                                    "object": "C:\\Program Files\\Confer\\RepMgr.exe"
                                 },
                                 "has_app": true,
                                 "id": 7,
@@ -559,6 +598,12 @@
                             ".title": {
                                 "text": "Contain"
                             },
+                            "g.approver image": {
+                                "opacity": 1
+                            },
+                            "g.code image": {
+                                "opacity": 1
+                            },
                             "g.delete": {
                                 "display": "none"
                             },
@@ -570,9 +615,15 @@
                             },
                             "g.notes": {
                                 "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1
+                            },
+                            "g.timer image": {
+                                "opacity": 1
                             }
                         },
-                        "block_code": "def live_response_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('live_response_1() called')\n\n    # collect data for 'live_response_1' call\n\n    parameters = []\n    \n    # build parameters list for 'live_response_1' call\n    parameters.append({\n        'device_id': 13698,\n        'command': \"process list\",\n        'object': \"\\\\Device\\\\HarddiskVolume1\\\\Program Files (x86)\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\",\n    })\n\n    phantom.act(\"live response\", parameters=parameters, assets=['psc'], name=\"live_response_1\")\n\n    return",
+                        "block_code": "def live_response_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None):\n    phantom.debug('live_response_1() called')\n\n    # collect data for 'live_response_1' call\n\n    parameters = []\n    \n    # build parameters list for 'live_response_1' call\n    parameters.append({\n        'object': \"C:\\\\Program Files\\\\Confer\\\\RepMgr.exe\",\n        'command': \"process list\",\n        'device_id': 13698,\n    })\n\n    phantom.act(\"live response\", parameters=parameters, assets=['psc'], name=\"live_response_1\")\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
@@ -680,48 +731,7 @@
                         "title": "Contain",
                         "type": "coa.Action",
                         "warn": "",
-                        "z": 6
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "7f4e44e3-0d5b-4bf3-ab17-5b791ccdb92d",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "2e2491ce-7f48-4daf-a201-eabed8cfcc6c",
-                            "port": null,
-                            "selector": "g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "d077c20d-6094-4f74-9035-14e601090e25",
-                            "port": null,
-                            "selector": "g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "type": "link",
-                        "z": 7
+                        "z": 8
                     }
                 ]
             },
@@ -730,7 +740,7 @@
         "schema": 3,
         "version": "4.2.7532"
     },
-    "create_time": "2019-05-06T16:36:30.744836+00:00",
+    "create_time": "2019-05-09T14:53:03.962807+00:00",
     "draft_mode": false,
     "labels": [
         "events"

@@ -22,9 +22,9 @@ def live_response_1(action=None, success=None, container=None, results=None, han
     
     # build parameters list for 'live_response_1' call
     parameters.append({
-        'device_id': 13698,
+        'object': "C:\\Program Files\\Confer\\RepMgr.exe",
         'command': "process list",
-        'object': "\\Device\\HarddiskVolume1\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+        'device_id': 13698,
     })
 
     phantom.act("live response", parameters=parameters, assets=['psc'], name="live_response_1")
